@@ -1,5 +1,6 @@
 import React from 'react'
-import { View, FlatList, Text } from 'react-native'
+
+import BusStopList from './BusStopList'
 
 class BusStopView extends React.Component {
 
@@ -34,10 +35,7 @@ class BusStopView extends React.Component {
 
     render() {
         return (
-            <FlatList
-                data={this.state.stops}
-                renderItem={({item}) => <Text>{item.description}</Text>}
-            />
+            <BusStopList stops={this.state.stops} />
         )
     }
 }
