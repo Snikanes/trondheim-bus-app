@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import { View, Text } from 'react-native'
 
 class DeparturesScreen extends React.Component {
@@ -12,10 +12,8 @@ class DeparturesScreen extends React.Component {
     }
 
     async componentDidMount() {
-        const { params } = this.props.navigation.state;
+        const { params } = this.props.navigation.state
         const departures = await this.getDepartures(params.stop.nodeId)
-        console.log(params.stop.nodeId)
-        console.log(departures)
 
         this.setState({
             departures: departures
@@ -23,7 +21,7 @@ class DeparturesScreen extends React.Component {
     }
 
     static navigationOptions = {
-        title: 'Departures',
+        title: 'Departures'
     }
 
     getDepartures(nodeId) {
@@ -45,9 +43,9 @@ class DeparturesScreen extends React.Component {
 
         return (
             <View>
-                { deps }
+                {deps}
             </View>
-        );
+        )
     }
 }
 
