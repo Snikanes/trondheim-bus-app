@@ -1,12 +1,12 @@
 import React from 'react'
-import { FlatList, Text } from 'react-native'
+import { FlatList } from 'react-native'
 
 import BusStopListElement from './BusStopListElement'
 
-const BusStopList = ({ stops }) => (
+const BusStopList = ({ stops, onRequestDepartures }) => (
     <FlatList
         data={ stops }
-        renderItem={({ item }) => <BusStopListElement stop={item} /> }
+        renderItem={({ item }) => <BusStopListElement stop={ item } onRequestDepartures={ onRequestDepartures }/> }
     />
 )
 

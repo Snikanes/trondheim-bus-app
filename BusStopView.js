@@ -35,7 +35,7 @@ class BusStopView extends React.Component {
 
     render() {
         return (
-            <BusStopList stops={this.state.stops} />
+            <BusStopList stops={this.state.stops} onRequestDepartures={this.props.onRequestDepartures}/>
         )
     }
 }
