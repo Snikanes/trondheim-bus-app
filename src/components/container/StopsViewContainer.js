@@ -11,7 +11,7 @@ const mapDispatchToProps = dispatch => {
 
 const mapStateToProps = state => {
     return {
-        stops: state.stops.stops,
+        stops: state.stops.filteredStops,
         isLoading: state.stops.isLoading
     }
 }
