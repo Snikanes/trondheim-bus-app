@@ -13,21 +13,24 @@ const departuresReducer = (state = initialState, action) => {
     switch (action.type) {
         case GET_DEPARTURES:
             return handle(state, action, {
-                start: prevState => ({
-                    ...prevState,
+                start: state => ({
+                    ...state,
                     isLoading: true,
                     fetchError: null
                 }),
-                finish: prevState => ({
-                    ...prevState,
+                finish: state => ({
+                    ...state,
                     isLoading: false
                 }),
-                failure: prevState => ({
-                    ...prevState,
+                failure: state => ({
+                    ...state,
                     fetchError: action.payload
                 }),
-                success: prevState => ({
-                    ...action.payload
+                success: state => ({
+                    ...state,
+                    name: action.payload.name,
+                    locationId: action.payload.locationId,
+                    next: action.payload.next ? action.payload.next : []
                 })
             })
         default:

@@ -16,12 +16,10 @@ const StopList = ({ stops, navigation }) => {
         )
     }
 
-
-
     return (
         <FlatList
             data={stops}
-            renderItem={({ item }) => <StopListElement stop={item} navigation={navigation}/>}
+            renderItem={({ item }) => <StopListElement stop={item} navigation={navigation} />}
             keyExtractor={(item, index) => item.locationId}
             ItemSeparatorComponent={stopSeparator}
         />

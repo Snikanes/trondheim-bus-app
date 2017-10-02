@@ -1,12 +1,9 @@
 import React from 'react'
 import { Text, View, StyleSheet, TouchableHighlight } from 'react-native'
 
-const StopListElement = ({ stop, stopPressedHandler, navigation }) => (
+const StopListElement = ({ stop, stopPressedHandler }) => (
     <View style={styles.container}>
-        <TouchableHighlight onPress={() => {
-            stopPressedHandler(stop)
-            navigation.navigate('Departures', { stop: stop })
-        }}>
+        <TouchableHighlight onPress={() => stopPressedHandler(stop)}>
             <View>
                 <Text style={styles.nameText}> {stop.name} </Text>
                 <Text style={styles.directionText}> {stop.d} </Text>
