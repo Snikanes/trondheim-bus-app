@@ -3,7 +3,7 @@ import { View } from 'react-native'
 
 import StopView from '../container/StopsViewContainer'
 
-class StopsScreen extends React.Component {
+class StopsScreen extends React.PureComponent {
     static navigationOptions = {
         title: 'Bus stops'
     }
