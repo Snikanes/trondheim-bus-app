@@ -1,12 +1,15 @@
 import React from 'react'
 import { Text, View, Button } from 'react-native'
 
-const BusStopElement = ({ stop, onRequestDepartures }) => (
+const StopElement = ({ stop, stopPressedHandler, navigation }) => (
     <View>
-        <Text> {stop.description} </Text>
-        <Text> {stop.nodeId} </Text>
-        <Button title="Show departures" onPress={() => onRequestDepartures(stop)}> </Button>
+        <Text> {stop.name} </Text>
+        <Text> {stop.locationId} </Text>
+        <Button title="Show departures" onPress={() => {
+            stopPressedHandler(stop)
+            navigation.navigate('Departures', { stop: stop })
+        }} />
     </View>
 )
 
-export default BusStopElement
+export default StopElement

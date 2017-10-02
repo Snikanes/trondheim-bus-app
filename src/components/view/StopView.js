@@ -1,6 +1,6 @@
 import React from 'react'
 
-import BusStopList from './StopList'
+import StopList from './StopList'
 
 class StopView extends React.Component {
     constructor(props) {
@@ -13,7 +13,7 @@ class StopView extends React.Component {
 
     render() {
         return (
-            <BusStopList stops={this.props.stops} onRequestDepartures={this.props.onRequestDepartures}/>
+            <StopList stops={this.props.stops} navigation={this.props.navigation}/>
         )
     }
 }

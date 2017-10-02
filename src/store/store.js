@@ -5,11 +5,13 @@ import devToolsEnhancer from 'remote-redux-devtools'
 
 import stopsReducer from '../reducers/stopsReducer'
 import createNavReducer from '../reducers/navReducer'
+import departuresReducer from '../reducers/departuresReducer'
 
 const configureStore = appNavigator => {
 
     const reducers = combineReducers({
         stops: stopsReducer,
+        departures: departuresReducer,
         nav: createNavReducer(appNavigator)
     })
 

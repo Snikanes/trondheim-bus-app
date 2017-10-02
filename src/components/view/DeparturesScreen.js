@@ -1,53 +1,19 @@
 import React from 'react'
 import { View, Text } from 'react-native'
 
-class DeparturesScreen extends React.Component {
+const DeparturesScreen = ({ departures }) => (
 
-    constructor(props) {
-        super(props)
-        this.state = {
-            isLoading: false,
-            departures: []
-        }
-    }
-
-    async componentDidMount() {
-        const { params } = this.props.navigation.state
-        const departures = await this.getDepartures(params.stop.nodeId)
-
-        this.setState({
-            departures: departures
-        })
-    }
-
-    static navigationOptions = {
-        title: 'Departures'
-    }
-
-    getDepartures(nodeId) {
-        return fetch(`https://atbapi.tar.io/api/v1/departures/${nodeId}`)
-            .then(result => result.json())
-            .then(json => json.departures)
-            .catch(err => console.error(err))
-    }
-
-    render() {
-        const deps = this.state.departures.map(dep => {
+    <View>
+        {departures.map(dep => {
             return (
                 <View>
-                    <Text> {dep.line} </Text>
-                    <Text> {dep.scheduledDepartureTime} </Text>
+                    <Text> {dep.l} </Text>
+                    <Text> {dep.t} </Text>
                 </View>
             )
-        })
-
-        return (
-            <View>
-                {deps}
-            </View>
-        )
-    }
-}
+        })}
+    </View>
+)
 
 
 export default DeparturesScreen

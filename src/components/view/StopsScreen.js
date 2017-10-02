@@ -9,10 +9,9 @@ class StopsScreen extends React.Component {
     }
 
     render() {
-        const { navigate } = this.props.navigation
         return (
             <View>
-                <StopView onRequestDepartures={stop => navigate('Departures', { stop: stop })}/>
+                <StopView navigation={this.props.navigation}/>
             </View>
         )
     }

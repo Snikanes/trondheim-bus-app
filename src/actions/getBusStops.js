@@ -1,9 +1,8 @@
 import { GET_BUS_STOPS } from '../constants'
 
 const getBusStops = () => {
-    const busStopsPromise = fetch('https://atbapi.tar.io/api/v1/busstops')
+    const busStopsPromise = fetch('http://bybussen-api.734sduu47i.eu-west-2.elasticbeanstalk.com/stops')
         .then(result => result.json())
-        .then(json => json.stops)
 
     return {
         type: GET_BUS_STOPS,

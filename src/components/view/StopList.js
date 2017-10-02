@@ -1,14 +1,15 @@
 import React from 'react'
 import { FlatList } from 'react-native'
 
-import BusStopListElement from './StopListElement'
+import StopListElement from '../container/StopsListElementContainer'
 
-const BusStopList = ({ stops, onRequestDepartures }) => (
+const StopList = ({ stops, navigation }) => (
+
     <FlatList
         data={stops}
-        renderItem={({ item }) => <BusStopListElement stop={item} onRequestDepartures={onRequestDepartures}/>}
-        keyExtractor={(item, index) => item.nodeId}
+        renderItem={({ item }) => <StopListElement stop={item} navigation={navigation}/>}
+        keyExtractor={(item, index) => item.locationId}
     />
 )
 
-export default BusStopList
+export default StopList

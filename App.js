@@ -3,7 +3,7 @@ import { connect, Provider } from 'react-redux'
 import { addNavigationHelpers, StackNavigator } from 'react-navigation'
 
 import StopsScreen from './src/components/view/StopsScreen'
-import DeparturesScreen from './src/components/view/DeparturesScreen'
+import DeparturesScreen from './src/components/container/DeparturesScreenContainer'
 import configureStore from "./src/store/store";
 
 const routes = {
