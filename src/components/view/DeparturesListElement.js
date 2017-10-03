@@ -15,15 +15,17 @@ const styles = StyleSheet.create({
         fontSize: 20
     },
     timeText: {
-        fontSize: 15,
+        fontSize: 20,
         color: 'rgba(0, 0, 0, 0.5)'
     },
     container: {
         flex: 1,
-        justifyContent: 'center',
-        alignContent: 'center',
-        height: 70,
-        marginLeft: '3%'
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        height: 50,
+        marginLeft: '3%',
+        marginRight: '3%'
     }
 })
 

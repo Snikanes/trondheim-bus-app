@@ -1,14 +1,18 @@
 import React from 'react'
 import { Text, View, StyleSheet, TouchableHighlight } from 'react-native'
 
+import { colors } from '../../styles'
+
 const StopListElement = ({ stop, stopPressedHandler }) => (
-    <View style={styles.container}>
-        <TouchableHighlight onPress={() => stopPressedHandler(stop)}>
-            <View>
-                <Text style={styles.nameText}> {stop.name} </Text>
-                <Text style={styles.directionText}> {stop.d} </Text>
-            </View>
-        </TouchableHighlight>
+    <View style={styles.bg}>
+        <View style={styles.container}>
+            <TouchableHighlight onPress={() => stopPressedHandler(stop)}>
+                <View>
+                    <Text style={styles.nameText}> {stop.name} </Text>
+                    <Text style={styles.directionText}> {stop.d} </Text>
+                </View>
+            </TouchableHighlight>
+        </View>
     </View>
 )
 
@@ -26,7 +30,10 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignContent: 'center',
         height: 70,
-        marginLeft: '3%'
+        marginLeft: '3%',
+    },
+    bg: {
+        backgroundColor: colors.appSecondary
     }
 })
 

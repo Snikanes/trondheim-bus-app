@@ -1,14 +1,19 @@
 import React from 'react'
 import { View } from 'react-native'
 
+import { colors } from '../../styles'
 import StopView from '../container/StopsViewContainer'
 
 class StopsScreen extends React.PureComponent {
     static navigationOptions = {
-        title: 'Bus stops'
+        title: 'Holdeplasser',
+        headerTintColor: colors.navHeaderText,
+        headerStyle: {
+            backgroundColor: colors.appBackground,
+        }
     }
 
-    render() {
+    render () {
         return (
             <View>
                 <StopView navigation={this.props.navigation}/>
