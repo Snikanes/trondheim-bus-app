@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect, Provider } from 'react-redux'
-import { addNavigationHelpers, StackNavigator } from 'react-navigation'
+import { addNavigationHelpers, StackNavigator, NavigationActions } from 'react-navigation'
 
 import StopsScreen from './src/components/view/StopsScreen'
 import DeparturesScreen from './src/components/view/DeparturesScreen'
@@ -12,6 +12,18 @@ const routes = {
 }
 
 const AppNavigator = StackNavigator(routes)
+
+// Required to make the navigator navigate only once in response to multiple taps
+const navigateOnce = (getStateForAction) => (action, state) => {
+    const {type, routeName} = action;
+    return (
+        state &&
+        type === NavigationActions.NAVIGATE &&
+        routeName === state.routes[state.routes.length - 1].routeName
+    ) ? state : getStateForAction(action, state);
+};
+
+AppNavigator.router.getStateForAction = navigateOnce(AppNavigator.router.getStateForAction);
 
 class App extends React.Component {
     render() {
@@ -29,6 +41,7 @@ const mapStateToProps = (state) => ({
 });
 
 const AppWithNavigationState = connect(mapStateToProps)(App);
+
 
 const store = configureStore(AppNavigator)
 
