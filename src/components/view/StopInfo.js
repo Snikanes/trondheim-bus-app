@@ -8,7 +8,7 @@ const StopInfo = ({ name, direction }) => {
     return (
         <View>
             <View style={styles.container}>
-                <Text style={text.size.xlarge}> {name} </Text>
+                <Text style={text.size.large}> {name} </Text>
                 <Text style={[text.size.large, text.muted]}> {direction} </Text>
             </View>
             <View style={styles.separator} />

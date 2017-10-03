@@ -1,5 +1,5 @@
 import React from 'react'
-import { TextInput, StyleSheet, View } from 'react-native'
+import { TextInput, StyleSheet, View, Text } from 'react-native'
 
 import { colors, text } from '../../styles'
 

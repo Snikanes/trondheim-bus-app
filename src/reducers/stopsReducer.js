@@ -1,5 +1,6 @@
-import { GET_BUS_STOPS, SEARCH_TEXT_CHANGED } from '../constants'
+import { GET_BUS_STOPS, SEARCH_TEXT_CHANGED, REQUEST_LOCATION } from '../constants'
 import { handle } from 'redux-pack'
+import haversine from 'haversine'
 
 const initialState = {
     searchText: '',
@@ -44,9 +45,9 @@ const stopsReducer = (state = initialState, action) => {
 }
 
 const filterStops = (searchText, allStops) => {
-    return searchText.length > 0
+    return (searchText.length > 0
         ? allStops.filter(stop => stop.name.toLowerCase().includes(searchText.toLowerCase()))
-        : allStops
+        : allStops).sort((a, b) => a.distance - b.distance)
 }
 
 export default stopsReducer

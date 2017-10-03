@@ -1,11 +1,12 @@
 import { connect } from 'react-redux'
 
 import StopView from '../view/StopView'
-import getBusStops from '../../actions/getBusStops'
+import getNearbyStops from '../../actions/getNearbyStops'
 
 const mapDispatchToProps = dispatch => {
+
     return {
-        getBusStops: () => dispatch(getBusStops())
+        getNearbyStops: locationApi => dispatch(getNearbyStops(locationApi))
     }
 }
 

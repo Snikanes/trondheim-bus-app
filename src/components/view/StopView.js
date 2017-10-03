@@ -1,5 +1,5 @@
 import React from 'react'
-import { View } from 'react-native'
+import { View, Text } from 'react-native'
 
 import StopList from './StopList'
 import StopListSearch from '../container/StopListSearchContainer'
@@ -10,7 +10,7 @@ class StopView extends React.Component {
     }
 
     async componentDidMount() {
-        this.props.getBusStops()
+        this.props.getNearbyStops(navigator.geolocation)
     }
 
     render() {
