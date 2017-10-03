@@ -45,7 +45,7 @@ const stopsReducer = (state = initialState, action) => {
 
 const filterStops = (searchText, allStops) => {
     return searchText.length > 0
-        ? allStops.filter(stop => stop.name.includes(searchText))
+        ? allStops.filter(stop => stop.name.toLowerCase().includes(searchText.toLowerCase()))
         : allStops
 }
 
