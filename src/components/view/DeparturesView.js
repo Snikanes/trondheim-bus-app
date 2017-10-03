@@ -1,10 +1,12 @@
 import React from 'react'
-import { View, Text } from 'react-native'
-import DeparturesList from './DeparturesList'
+import { View } from 'react-native'
 
-const DeparturesView = ({ name, departures }) => (
+import DeparturesList from './DeparturesList'
+import StopInfo from './StopInfo'
+
+const DeparturesView = ({ name, locationId, direction, departures }) => (
     <View>
-        <Text> {name} </Text>
+        <StopInfo name={name} locationId={locationId} direction={direction}/>
         <DeparturesList departures={departures}/>
     </View>
 )

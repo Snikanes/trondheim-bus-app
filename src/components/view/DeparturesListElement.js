@@ -3,21 +3,18 @@ import { Text, View, StyleSheet } from 'react-native'
 import moment from 'moment'
 import 'moment/locale/nb'
 
+import { colors, text } from '../../styles'
+
 const DeparturesListElement = ({ departure }) => (
-    <View style={styles.container}>
-        <Text style={styles.nameText}> {departure.l} </Text>
-        <Text style={styles.timeText}> {createDisplayTime(departure.rt === 1 ? departure.t : departure.ts)} </Text>
+    <View style={{backgroundColor: colors.appSecondary}}>
+        <View style={styles.container}>
+            <Text style={[text.size.large]}> {departure.l} </Text>
+            <Text style={[text.size.large, text.muted]}> {createDisplayTime(departure.rt === 1 ? departure.t : departure.ts)} </Text>
+        </View>
     </View>
 )
 
 const styles = StyleSheet.create({
-    nameText: {
-        fontSize: 20
-    },
-    timeText: {
-        fontSize: 20,
-        color: 'rgba(0, 0, 0, 0.5)'
-    },
     container: {
         flex: 1,
         flexDirection: 'row',
@@ -26,7 +23,7 @@ const styles = StyleSheet.create({
         height: 50,
         marginLeft: '3%',
         marginRight: '3%'
-    }
+    },
 })
 
 const createDisplayTime = timeString => {

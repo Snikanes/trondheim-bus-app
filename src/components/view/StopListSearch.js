@@ -1,6 +1,8 @@
 import React from 'react'
 import { TextInput, StyleSheet, View } from 'react-native'
 
+import { colors, text } from '../../styles'
+
 const StopListSearch = ({ searchTextChanged }) => {
 
     return (
@@ -16,13 +18,6 @@ const StopListSearch = ({ searchTextChanged }) => {
 }
 
 const styles = StyleSheet.create({
-    nameText: {
-        fontSize: 20
-    },
-    timeText: {
-        fontSize: 20,
-        color: 'rgba(0, 0, 0, 0.5)'
-    },
     textInput: {
         marginLeft: '3%',
         marginRight: '3%',
@@ -30,7 +25,7 @@ const styles = StyleSheet.create({
     },
     separator: {
         height: 1,
-        backgroundColor: "#CED0CE"
+        backgroundColor: colors.separator
     }
 })
 

@@ -5,7 +5,9 @@ import DeparturesView from '../view/DeparturesView'
 const mapStateToProps = state => {
     return {
         name: state.departures.name,
-        departures: state.departures.next
+        locationId: state.departures.locationId,
+        departures: state.departures.next,
+        direction: state.departures.direction,
     }
 }
 

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Text, View, StyleSheet, TouchableOpacity } from 'react-native'
 
-import { colors } from '../../styles'
+import { colors, text } from '../../styles'
 
 const StopListElement = ({ stop, stopPressedHandler }) => (
     <View style={styles.bg}>
@@ -11,8 +11,8 @@ const StopListElement = ({ stop, stopPressedHandler }) => (
                 activeOpacity={0.4}
             >
                 <View>
-                    <Text style={styles.nameText}> {stop.name} </Text>
-                    <Text style={styles.directionText}> {stop.d} </Text>
+                    <Text style={[text.size.large]}> {stop.name} </Text>
+                    <Text style={[text.size.medium, text.muted]}> {stop.d} </Text>
                 </View>
             </TouchableOpacity>
         </View>
@@ -20,14 +20,6 @@ const StopListElement = ({ stop, stopPressedHandler }) => (
 )
 
 const styles = StyleSheet.create({
-
-    nameText: {
-        fontSize: 20
-    },
-    directionText: {
-        fontSize: 15,
-        color: 'rgba(0, 0, 0, 0.5)'
-    },
     container: {
         flex: 1,
         justifyContent: 'center',
