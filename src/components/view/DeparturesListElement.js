@@ -28,8 +28,10 @@ const styles = StyleSheet.create({
 
 const createDisplayTime = timeString => {
     moment.locale('nb')
-
     const departureTime = moment(timeString, 'DD.MM.YYYY HH:mm')
+    if(departureTime.isBefore(moment().add(1, 'm') || departureTime.isAfter(moment.now()))) {
+        return 'nå'
+    }
     return departureTime.isBefore(moment().add(15, 'm')) ? departureTime.fromNow() : departureTime.format('HH:mm')
 }
 
