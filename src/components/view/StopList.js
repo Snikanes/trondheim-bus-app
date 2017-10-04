@@ -2,6 +2,7 @@ import React from 'react'
 import { FlatList, View, Text } from 'react-native'
 
 import StopListElement from '../container/StopsListElementContainer'
+import { colors } from '../../styles'
 
 const StopList = ({ stops, navigation }) => {
 
@@ -9,8 +10,8 @@ const StopList = ({ stops, navigation }) => {
         return (
             <View
                 style={{
-                    height: 1,
-                    backgroundColor: "#CED0CE",
+                    height: 10,
+                    backgroundColor: colors.appSecondary,
                 }}
             />
         )
