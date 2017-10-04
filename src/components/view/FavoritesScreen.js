@@ -2,11 +2,12 @@ import React from 'react'
 import { View } from 'react-native'
 
 import { colors, header } from '../../styles'
-import StopView from '../container/StopViewContainer'
+import FavoritesView from '../container/FavoritesViewContainer'
 
-class StopsScreen extends React.PureComponent {
+class FavoritesScreen extends React.PureComponent {
+
     static navigationOptions = {
-        title: 'Holdeplasser',
+        title: 'Mine avganger',
         headerTintColor: colors.navHeaderText,
         headerStyle: { ...header.defaultStyle }
     }
@@ -14,10 +15,10 @@ class StopsScreen extends React.PureComponent {
     render () {
         return (
             <View>
-                <StopView navigation={this.props.navigation}/>
+                <FavoritesView />
             </View>
         )
     }
 }
 
-export default StopsScreen
+export default FavoritesScreen

@@ -26,3 +26,16 @@ export const text = {
     }
 
 }
+
+export const header = {
+    title: {
+        defaultStyle: {
+            color: 'white',
+            fontWeight: 'bold'
+        }
+    },
+
+    defaultStyle: {
+        backgroundColor: colors.appBackground,
+    }
+}

@@ -16,7 +16,6 @@ class StopView extends React.Component {
         return (
             <View>
                 <StopListSearch />
-                <FavoritesView />
                 <StopList stops={this.props.stops} navigation={this.props.navigation}/>
             </View>
         )

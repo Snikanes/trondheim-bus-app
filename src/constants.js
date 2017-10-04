@@ -1,4 +1,5 @@
 export const STOPS_SCREEN = 'STOPS_SCREEN'
+export const FAVORITES = 'FAVORITES'
 
 // Actions
 export const GET_BUS_STOPS = 'GET_BUS_STOPS'

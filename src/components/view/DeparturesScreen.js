@@ -1,20 +1,18 @@
 import React from 'react'
 
 import DeparturesView from '../container/DeparturesViewContainer'
-import { colors } from '../../styles'
+import { colors, header } from '../../styles'
 
 class DeparturesScreen extends React.PureComponent {
     static navigationOptions = {
-        title: 'Departures',
+        title: 'Avganger',
         headerTintColor: colors.navHeaderText,
-        headerStyle: {
-            backgroundColor: colors.appBackground,
-        }
+        headerStyle: { ...header.defaultStyle },
     }
 
     render() {
         return (
-            <DeparturesView/>
+            <DeparturesView />
         )
     }
 }

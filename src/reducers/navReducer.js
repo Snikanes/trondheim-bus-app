@@ -1,15 +1,12 @@
-import { STOPS_SCREEN } from '../constants'
+import { NavigationActions } from 'react-navigation'
 
 const createNavReducer = appNavigator => {
-    const initialState = appNavigator.router.getStateForAction(appNavigator.router.getActionForPathAndParams('BusStops'))
+    const initialState = appNavigator.router.getStateForAction(NavigationActions.navigate({ routeName: 'Favorites'}))
 
     return (state = initialState, action) => {
         const nextState = appNavigator.router.getStateForAction(action, state)
 
         switch (action.type) {
-            case STOPS_SCREEN:
-                console.log('In stops screen')
-                return nextState
             default:
                 return nextState || state
         }
