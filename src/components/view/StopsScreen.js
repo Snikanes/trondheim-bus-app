@@ -2,7 +2,7 @@ import React from 'react'
 import { View } from 'react-native'
 
 import { colors } from '../../styles'
-import StopView from '../container/StopsViewContainer'
+import StopView from '../container/StopViewContainer'
 
 class StopsScreen extends React.PureComponent {
     static navigationOptions = {

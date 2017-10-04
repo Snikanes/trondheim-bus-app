@@ -1,6 +1,6 @@
 import React from 'react'
 import { FlatList, View, Text } from 'react-native'
-import DeparturesListElement from './DeparturesListElement'
+import DeparturesListElement from '../container/DeparturesListElementContainer'
 
 const DeparturesList = ({ departures }) => {
 

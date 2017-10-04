@@ -1,13 +1,11 @@
 import { GET_DEPARTURES } from '../constants'
+import fetchDepartures from '../comm/fetchDepartures'
 
 const getDepartures = locationId => {
-    const departuresPromise = fetch(`http://bybussen-api.734sduu47i.eu-west-2.elasticbeanstalk.com/rt/${locationId}`)
-        .then(result => result.json())
-
     return {
         type: GET_DEPARTURES,
-        promise: departuresPromise
+        promise: fetchDepartures(locationId)
     }
 }
-``
+
 export default getDepartures

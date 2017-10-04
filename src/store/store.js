@@ -6,12 +6,14 @@ import devToolsEnhancer from 'remote-redux-devtools'
 import stopsReducer from '../reducers/stopsReducer'
 import createNavReducer from '../reducers/navReducer'
 import departuresReducer from '../reducers/departuresReducer'
+import favoritesReducer from '../reducers/favoritesReducer'
 
 const configureStore = appNavigator => {
 
     const reducers = combineReducers({
         stops: stopsReducer,
         departures: departuresReducer,
+        favorites: favoritesReducer,
         nav: createNavReducer(appNavigator)
     })
 
