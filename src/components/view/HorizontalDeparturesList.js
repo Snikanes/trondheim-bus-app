@@ -6,7 +6,7 @@ import { text } from '../../styles'
 
 const HorizontalDeparturesList = ({ departures }) => (
     <FlatList
-        contentContainerStyle={{ justifyContent: 'center', alignItems: 'center' }}
+        contentContainerStyle={{ justifyContent: 'space-around', alignItems: 'center' }}
         horizontal
         data={departures}
         keyExtractor={(item, index) => item.rt === 1 ? item.t : item.ts}
