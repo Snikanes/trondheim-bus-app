@@ -6,7 +6,7 @@ import { colors, text } from '../../styles'
 const StopListElement = ({ stop, stopPressedHandler }) => (
     <View style={styles.bg}>
         <TouchableOpacity
-            style={[styles.card, styles.hasShadow]}
+            style={[styles.card]}
             onPress={() => stopPressedHandler(stop)}
             activeOpacity={0.4}
         >

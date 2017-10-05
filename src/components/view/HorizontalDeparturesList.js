@@ -8,6 +8,8 @@ const HorizontalDeparturesList = ({ departures }) => (
     <FlatList
         contentContainerStyle={{ justifyContent: 'space-around', alignItems: 'center' }}
         horizontal
+        snapToInterval={200}
+        snapToAlignment={"center"}
         data={departures}
         keyExtractor={(item, index) => item.rt === 1 ? item.t : item.ts}
         renderItem={({ item }) => <Text style={text.size.large}> {createDisplayTime(item.rt === 1 ? item.t : item.ts)} </Text>}

@@ -3,49 +3,73 @@ import React from 'react'
 import { View, Text, StyleSheet } from 'react-native'
 import { colors, text } from '../../styles'
 import HorizontalDeparturesList from './HorizontalDeparturesList'
+import FavoriteStar from './FavoriteStar'
 
 const LineDepartures = ({ line, name, direction, departures }) => {
 
     return (
-        <View style={styles.card}>
-            <View style={styles.infoSection}>
-                <View style={styles.lineContainer}>
-                    <Text style={[text.size.large, styles.lineText]}> {line} </Text>
+        <View style={styles.bg}>
+            <View style={styles.card}>
+                <View style={styles.infoSection}>
+                    <View style={styles.lineContainer}>
+                        <Text style={[text.size.large, styles.lineText]}> {line} </Text>
+                    </View>
+                    <View style={styles.stopNameContainer}>
+                        <Text style={[text.size.medium]}> {`${name} ${direction}`} </Text>
+                    </View>
+                    <View style={[styles.favoriteStarContainer]}>
+                        <FavoriteStar/>
+                    </View>
                 </View>
-                <Text style={[styles.infoText, text.size.large, text.muted]}> {`${name} ${direction}`} </Text>
+                <HorizontalDeparturesList style={styles.departures} departures={departures}/>
             </View>
-            <HorizontalDeparturesList departures={departures}/>
         </View>
     )
 }
 
 const styles = StyleSheet.create({
     card: {
+        flex: 1,
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
-        height: 100,
-        marginRight: 10,
-        marginLeft: 10,
-        backgroundColor: 'white',
-        borderRadius: 5
+        height: 80,
+        backgroundColor: 'white'
     },
     infoSection: {
+        flex: 1,
         flexDirection: 'row',
         justifyContent: 'flex-start',
-        width: '100%',
         borderBottomColor: colors.appSecondary,
         borderBottomWidth: 1,
     },
-    infoText: {
-        textAlign: 'center'
-    },
     lineContainer: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
         backgroundColor: colors.appBackground,
-        borderRadius: 5,
+    },
+    stopNameContainer: {
+        flex: 5,
+        justifyContent: 'center',
+        alignItems: 'flex-start',
+    },
+    favoriteStarContainer: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: colors.appBackground
     },
     lineText: {
-        color: 'white'
+        color: 'white',
+        textAlign: 'center'
+    },
+    bg: {
+        backgroundColor: colors.appSecondary
+    },
+
+    departures: {
+        flex: 3,
     }
 })
 
