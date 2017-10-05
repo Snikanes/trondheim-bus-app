@@ -17,7 +17,7 @@ const tabRoutes = {
     }
 }
 
-const TabsNav = TabNavigator(tabRoutes, { animationEnabled: true })
+const TabsNav = TabNavigator(tabRoutes, { animationEnabled: true, swipeEnabled: true })
 
 const rootRoutes = {
     Home: {
