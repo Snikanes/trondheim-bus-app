@@ -1,6 +1,7 @@
-import { GET_BUS_STOPS, SEARCH_TEXT_CHANGED, REQUEST_LOCATION } from '../constants'
 import { handle } from 'redux-pack'
-import haversine from 'haversine'
+
+import { GET_BUS_STOPS, SEARCH_TEXT_CHANGED } from '../constants'
+
 
 const initialState = {
     searchText: '',

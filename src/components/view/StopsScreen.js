@@ -11,7 +11,7 @@ class StopsScreen extends React.PureComponent {
         headerStyle: { ...header.defaultStyle }
     }
 
-    render () {
+    render() {
         return (
             <View>
                 <StopView navigation={this.props.navigation}/>

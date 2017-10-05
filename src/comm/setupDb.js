@@ -1,7 +1,7 @@
 import Expo, { SQLite } from 'expo'
 
 const setupDb = () => {
-    const db = SQLite.openDatabase({ name: 'bus.db'})
+    const db = SQLite.openDatabase({ name: 'bus.db' })
 
     return new Promise((resolve, reject) => {
         db.transaction(trans => {

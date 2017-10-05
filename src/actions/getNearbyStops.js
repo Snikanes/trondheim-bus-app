@@ -21,14 +21,14 @@ const calculateDistance = (stop, lat, long) => {
         latitude: stop.latitude,
         longitude: stop.longitude
     }
-    return haversine(start, end, {unit: 'meter'})
+    return haversine(start, end, { unit: 'meter' })
 }
 
 const getNearbyStops = locationApi => {
     const locationPromise = new Promise((resolve, reject) => locationApi.getCurrentPosition(resolve, reject))
 
     return dispatch => {
-        return locationPromise.then(({coords, timestamp}) => dispatch({
+        return locationPromise.then(({ coords, timestamp }) => dispatch({
             type: GET_BUS_STOPS,
             promise: fetchBusStops.then(stops => augmentWithDistances(stops, coords.latitude, coords.longitude))
         }))

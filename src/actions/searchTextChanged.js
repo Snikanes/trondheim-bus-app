@@ -1,4 +1,4 @@
-import { SEARCH_TEXT_CHANGED } from '../constants'
+import { SEARCH_TEXT_CHANGED } from '../constants'
 
 const searchTextChanged = text => {
     return {

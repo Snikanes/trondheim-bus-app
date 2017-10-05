@@ -7,12 +7,12 @@ class DeparturesScreen extends React.PureComponent {
     static navigationOptions = {
         title: 'Avganger',
         headerTintColor: colors.navHeaderText,
-        headerStyle: { ...header.defaultStyle },
+        headerStyle: { ...header.defaultStyle }
     }
 
     render() {
         return (
-            <DeparturesView />
+            <DeparturesView/>
         )
     }
 }

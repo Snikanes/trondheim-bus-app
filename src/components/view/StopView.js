@@ -1,9 +1,8 @@
 import React from 'react'
-import { View, Text } from 'react-native'
+import { View } from 'react-native'
 
 import StopList from './StopList'
 import StopListSearch from '../container/StopListSearchContainer'
-import FavoritesView from '../container/FavoritesViewContainer'
 
 class StopView extends React.Component {
 
@@ -15,7 +14,7 @@ class StopView extends React.Component {
     render() {
         return (
             <View>
-                <StopListSearch />
+                <StopListSearch/>
                 <StopList stops={this.props.stops} navigation={this.props.navigation}/>
             </View>
         )

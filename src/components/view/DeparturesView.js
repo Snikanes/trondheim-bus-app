@@ -7,7 +7,11 @@ import StopInfo from './StopInfo'
 const DeparturesView = ({ name, locationId, direction, departures, isLoading }) => (
     <View style={styles.container}>
         <StopInfo name={name} locationId={locationId} direction={direction}/>
-        {isLoading ? <ActivityIndicator style={{flexGrow: 5}} size={'large'}/> : <DeparturesList departures={departures}/>}
+        {isLoading ?
+            <ActivityIndicator style={{ flexGrow: 5 }} size={'large'}/>
+            :
+            <DeparturesList departures={departures}/>
+        }
     </View>
 )
 

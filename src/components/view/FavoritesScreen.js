@@ -12,10 +12,10 @@ class FavoritesScreen extends React.PureComponent {
         headerStyle: { ...header.defaultStyle }
     }
 
-    render () {
+    render() {
         return (
             <View>
-                <FavoritesView />
+                <FavoritesView/>
             </View>
         )
     }

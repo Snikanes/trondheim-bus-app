@@ -1,12 +1,13 @@
-import { GET_FAVORITES, ADD_FAVORITE } from '../constants'
 import { handle } from 'redux-pack'
+
+import { GET_FAVORITES, ADD_FAVORITE } from '../constants'
 
 const initialState = {
     favorites: []
 }
 
 const favoritesReducer = (state = initialState, action) => {
-    switch(action.type) {
+    switch (action.type) {
         case GET_FAVORITES:
             return handle(state, action, {
                 start: state => ({
@@ -14,7 +15,7 @@ const favoritesReducer = (state = initialState, action) => {
                     fetchError: null
                 }),
                 finish: state => ({
-                    ...state,
+                    ...state
                 }),
                 failure: state => ({
                     ...state,
@@ -22,7 +23,7 @@ const favoritesReducer = (state = initialState, action) => {
                 }),
                 success: state => ({
                     ...state,
-                    favorites: action.payload,
+                    favorites: action.payload
                 })
             })
         case ADD_FAVORITE:

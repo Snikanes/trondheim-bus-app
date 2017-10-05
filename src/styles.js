@@ -22,7 +22,7 @@ export const text = {
         }
     },
     muted: {
-        color: colors.mutedColor,
+        color: colors.mutedColor
     }
 
 }
@@ -36,6 +36,6 @@ export const header = {
     },
 
     defaultStyle: {
-        backgroundColor: colors.appBackground,
+        backgroundColor: colors.appBackground
     }
 }

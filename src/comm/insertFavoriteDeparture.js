@@ -3,7 +3,7 @@ import Expo, { SQLite } from 'expo'
 import setupDb from './setupDb'
 
 const insertFavoriteDeparture = (locationId, line) => {
-    const db = SQLite.openDatabase({ name: 'bus.db'})
+    const db = SQLite.openDatabase({ name: 'bus.db' })
 
     return setupDb().then(() => {
         return new Promise((resolve, reject) => {

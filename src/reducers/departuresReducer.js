@@ -1,5 +1,7 @@
-import { GET_DEPARTURES, SET_SELECTED_STOP } from '../constants'
 import { handle } from 'redux-pack'
+
+import { GET_DEPARTURES, SET_SELECTED_STOP } from '../constants'
+
 
 const initialState = {
     isLoading: false,
@@ -29,7 +31,6 @@ const departuresReducer = (state = initialState, action) => {
                 }),
                 success: state => ({
                     ...state,
-
                     next: action.payload.next ? action.payload.next : []
                 })
             })

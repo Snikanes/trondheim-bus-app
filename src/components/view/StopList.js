@@ -11,7 +11,7 @@ const StopList = ({ stops, navigation }) => {
             <View
                 style={{
                     height: 10,
-                    backgroundColor: colors.appSecondary,
+                    backgroundColor: colors.appSecondary
                 }}
             />
         )
@@ -20,7 +20,7 @@ const StopList = ({ stops, navigation }) => {
     return (
         <FlatList
             data={stops}
-            renderItem={({ item }) => <StopListElement stop={item} navigation={navigation} />}
+            renderItem={({ item }) => <StopListElement stop={item} navigation={navigation}/>}
             keyExtractor={(item, index) => item.locationId}
             ItemSeparatorComponent={stopSeparator}
             ListEmptyComponent={<Text> {'Ingen avganger'} </Text>}
