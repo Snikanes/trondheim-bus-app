@@ -5,13 +5,14 @@ import addFavorite from '../../actions/addFavorite'
 
 const mapDispatchToProps = dispatch => {
     return {
-        addFavorite: (locationId, line) => dispatch(addFavorite(locationId, line))
+        addFavorite: (locationId, line, direction) => dispatch(addFavorite(locationId, line, direction))
     }
 }
 
 const mapStateToProps = state => {
     return {
-        locationId: state.departures.locationId
+        locationId: state.departures.locationId,
+        direction: state.departures.direction
     }
 }
 

@@ -6,19 +6,21 @@ const getFavorites = () => {
 
     return dispatch => {
         return retrieveFavoriteDepartures()
-            .then(favorites => dispatch({
-                type: GET_FAVORITES,
-                promise: Promise.all(favorites.map(favorite => fetchDepartures(favorite.locationId)
-                    .then(departures => stateObjectFromDepartureAndFavorite(departures, favorite))))
-            }))
+            .then(favorites => {
+                dispatch({
+                    type: GET_FAVORITES,
+                    promise: Promise.all(favorites.map(favorite => fetchDepartures(favorite.locationId)
+                        .then(departures => stateObjectFromDepartureAndFavorite(departures, favorite))))
+                })
+            })
     }
 }
 
-export const stateObjectFromDepartureAndFavorite = ({ next, name, d }, { locationId, line }) => {
+export const stateObjectFromDepartureAndFavorite = ({ next, name }, { locationId, line, direction }) => {
     return {
         locationId: locationId,
         name: name,
-        direction: d,
+        direction: direction,
         line: line,
         departures: next.filter(departure => departure.l === line)
     }

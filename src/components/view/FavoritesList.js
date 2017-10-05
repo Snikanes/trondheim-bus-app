@@ -1,17 +1,37 @@
 import React from 'react'
-import { FlatList, Text } from 'react-native'
+import { FlatList, View } from 'react-native'
 
-import FavoritesListElement from './FavoritesListElement'
+import LineDepartures from './LineDepartures'
+import { colors } from '../../styles'
 
 const FavoritesList = ({ favorites }) => {
-    const listHeader = <Text> {'Mine avganger'} </Text>
+
+    const stopSeparator = () => {
+        return (
+            <View
+                style={{
+                    height: 10,
+                    backgroundColor: colors.appSecondary
+                }}
+            />
+        )
+    }
+
+    const _renderItem = ({ item }) => (
+        <LineDepartures
+            name={item.name}
+            line={item.line}
+            departures={item.departures}
+            direction={item.direction}
+        />
+    )
 
     return (
         <FlatList
             data={favorites}
-            renderItem={({ item }) => <FavoritesListElement favorite={item}/>}
+            renderItem={_renderItem}
             keyExtractor={(item, index) => item.locationId + item.line}
-            ListHeaderComponent={listHeader}
+            ItemSeparatorComponent={stopSeparator}
         />
     )
 }

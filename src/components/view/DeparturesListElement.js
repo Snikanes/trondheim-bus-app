@@ -5,9 +5,9 @@ import 'moment/locale/nb'
 
 import { colors, text } from '../../styles'
 
-const DeparturesListElement = ({ addFavorite, departure, locationId }) => (
+const DeparturesListElement = ({ addFavorite, departure, locationId, direction }) => (
     <View style={{ backgroundColor: colors.appSecondary }}>
-        <TouchableHighlight onPress={() => addFavorite(locationId, departure.l)}>
+        <TouchableHighlight onPress={() => addFavorite(locationId, departure.l, direction)}>
             <View style={styles.container}>
                 <Text style={[text.size.large]}> {departure.l} </Text>
                 <Text
