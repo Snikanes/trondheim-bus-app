@@ -1,7 +1,7 @@
 import React from 'react'
 import { Text, View, StyleSheet, TouchableOpacity } from 'react-native'
 
-import { colors, text } from '../../styles'
+import { colors, text } from '../../../styles'
 
 const StopListElement = ({ stop, stopPressedHandler }) => (
     <View style={styles.bg}>

@@ -1,8 +1,8 @@
 import React from 'react'
 import { FlatList, View, Text } from 'react-native'
 
-import StopListElement from '../container/StopsListElementContainer'
-import { colors } from '../../styles'
+import StopListElement from '../../container/StopsListElementContainer'
+import { colors } from '../../../styles'
 
 const StopList = ({ stops, navigation }) => {
 

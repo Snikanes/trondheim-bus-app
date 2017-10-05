@@ -2,7 +2,7 @@ import React from 'react'
 import { View, Text, ActivityIndicator, StyleSheet } from 'react-native'
 
 import DeparturesList from './DeparturesList'
-import StopInfo from './StopInfo'
+import StopInfo from '../stops/StopInfo'
 
 const DeparturesView = ({ name, locationId, direction, departures, isLoading }) => (
     <View style={styles.container}>

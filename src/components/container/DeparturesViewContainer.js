@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 
-import DeparturesView from '../view/DeparturesView'
+import DeparturesView from '../view/departures/DeparturesView'
 
 const mapStateToProps = state => {
     return {

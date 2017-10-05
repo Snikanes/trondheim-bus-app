@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 
-import StopView from '../view/StopView'
+import StopView from '../view/stops/StopView'
 import getNearbyStops from '../../actions/getNearbyStops'
 import getFavorites from '../../actions/getFavorites'
 

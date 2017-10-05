@@ -1,7 +1,7 @@
 import React from 'react'
 import { View, Text, StyleSheet } from 'react-native'
 
-import { colors, text } from '../../styles'
+import { colors, text } from '../../../styles'
 
 const StopInfo = ({ name, direction }) => {
 

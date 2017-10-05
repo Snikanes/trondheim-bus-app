@@ -2,9 +2,9 @@ import React from 'react'
 import { connect, Provider } from 'react-redux'
 import { addNavigationHelpers, TabNavigator, StackNavigator, NavigationActions } from 'react-navigation'
 
-import StopsScreen from './src/components/view/StopsScreen'
-import FavoritesScreen from './src/components/view/FavoritesScreen'
-import DeparturesScreen from './src/components/view/DeparturesScreen'
+import StopsScreen from './src/components/view/stops/StopsScreen'
+import FavoritesScreen from './src/components/view/favorites/FavoritesScreen'
+import DeparturesScreen from './src/components/view/departures/DeparturesScreen'
 
 import configureStore from "./src/store/store";
 

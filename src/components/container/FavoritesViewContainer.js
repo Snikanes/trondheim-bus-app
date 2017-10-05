@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 
-import FavoritesView from '../view/FavoritesView'
+import FavoritesView from '../view/favorites/FavoritesView'
 
 const mapStateToProps = state => {
     return {

@@ -1,9 +1,9 @@
 import React from 'react'
 
 import { View, Text, StyleSheet } from 'react-native'
-import { colors, text } from '../../styles'
-import HorizontalDeparturesList from './HorizontalDeparturesList'
-import FavoriteStar from '../container/FavoriteStarContainer'
+import { colors, text } from '../../../styles'
+import HorizontalDeparturesList from '../common/HorizontalDeparturesList'
+import FavoriteStar from '../../container/FavoriteStarContainer'
 
 const LineDepartures = ({ locationId, line, name, direction, departures }) => {
 

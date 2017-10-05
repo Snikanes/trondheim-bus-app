@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 
-import StopListSearch from '../view/StopListSearch'
+import StopListSearch from '../view/stops/StopListSearch'
 import searchTextChanged from '../../actions/searchTextChanged'
 
 const mapDispatchToProps = dispatch => {

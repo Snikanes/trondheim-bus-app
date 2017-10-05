@@ -2,7 +2,7 @@ import React from 'react'
 import { FlatList, Text } from 'react-native'
 import moment from 'moment'
 import 'moment/locale/nb'
-import { text } from '../../styles'
+import { text } from '../../../styles'
 
 const HorizontalDeparturesList = ({ departures }) => (
     <FlatList

@@ -2,26 +2,28 @@ import React from 'react'
 import { View } from 'react-native'
 import { Ionicons } from '@expo/vector-icons';
 
-import { colors, header } from '../../styles'
-import StopView from '../container/StopViewContainer'
 
-class StopsScreen extends React.PureComponent {
+import { colors, header } from '../../../styles'
+import FavoritesView from '../../container/FavoritesViewContainer'
+
+class FavoritesScreen extends React.PureComponent {
+
     static navigationOptions = {
-        title: 'Søk etter holdeplasser',
+        title: 'Mine avganger',
         headerTintColor: colors.navHeaderText,
         headerStyle: { ...header.defaultStyle },
         tabBarIcon: ({ tintColor }) => (
-            <Ionicons name="md-search" size={30} color={tintColor} />
+            <Ionicons name="md-star" size={30} color={tintColor} />
         )
     }
 
     render() {
         return (
             <View>
-                <StopView navigation={this.props.navigation}/>
+                <FavoritesView/>
             </View>
         )
     }
 }
 
-export default StopsScreen
+export default FavoritesScreen

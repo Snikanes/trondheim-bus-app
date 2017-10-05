@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 
-import DeparturesListElement from '../view/DeparturesListElement'
+import DeparturesListElement from '../view/departures/DeparturesListElement'
 import addFavorite from '../../actions/addFavorite'
 
 const mapDispatchToProps = dispatch => {

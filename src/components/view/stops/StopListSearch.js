@@ -1,7 +1,7 @@
 import React from 'react'
 import { TextInput, StyleSheet, View } from 'react-native'
 
-import { colors } from '../../styles'
+import { colors } from '../../../styles'
 
 const StopListSearch = ({ searchTextChanged }) => {
 

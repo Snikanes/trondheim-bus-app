@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 
-import StopListElement from '../view/StopListElement'
+import StopListElement from '../view/stops/StopListElement'
 import getDepartures from '../../actions/getDepartures'
 import setSelectedStop from '../../actions/setSelectedStop'
 

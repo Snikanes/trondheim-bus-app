@@ -2,7 +2,7 @@ import React from 'react'
 import { FlatList, View } from 'react-native'
 
 import LineDepartures from './LineDepartures'
-import { colors } from '../../styles'
+import { colors } from '../../../styles'
 
 const FavoritesList = ({ favorites }) => {
 

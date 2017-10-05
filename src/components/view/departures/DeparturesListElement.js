@@ -3,7 +3,7 @@ import { Text, View, StyleSheet, TouchableHighlight } from 'react-native'
 import moment from 'moment'
 import 'moment/locale/nb'
 
-import { colors, text } from '../../styles'
+import { colors, text } from '../../../styles'
 
 const DeparturesListElement = ({ addFavorite, departure, locationId, direction }) => (
     <View style={{ backgroundColor: colors.appSecondary }}>

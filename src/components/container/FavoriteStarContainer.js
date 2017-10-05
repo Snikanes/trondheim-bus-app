@@ -2,7 +2,7 @@ import { connect } from 'react-redux'
 
 import addFavorite from '../../actions/addFavorite'
 import removeFavorite from '../../actions/removeFavorite'
-import FavoriteStar from '../view/FavoriteStar'
+import FavoriteStar from '../view/common/FavoriteStar'
 
 const mapDispatchToProps = dispatch => {
     return {
