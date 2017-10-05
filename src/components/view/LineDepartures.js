@@ -3,9 +3,9 @@ import React from 'react'
 import { View, Text, StyleSheet } from 'react-native'
 import { colors, text } from '../../styles'
 import HorizontalDeparturesList from './HorizontalDeparturesList'
-import FavoriteStar from './FavoriteStar'
+import FavoriteStar from '../container/FavoriteStarContainer'
 
-const LineDepartures = ({ line, name, direction, departures }) => {
+const LineDepartures = ({ locationId, line, name, direction, departures }) => {
 
     return (
         <View style={styles.bg}>
@@ -18,7 +18,7 @@ const LineDepartures = ({ line, name, direction, departures }) => {
                         <Text style={[text.size.medium]}> {`${name} ${direction}`} </Text>
                     </View>
                     <View style={[styles.favoriteStarContainer]}>
-                        <FavoriteStar/>
+                        <FavoriteStar isFavorite locationId={locationId} line={line} direction={direction} />
                     </View>
                 </View>
                 <HorizontalDeparturesList style={styles.departures} departures={departures}/>
@@ -41,18 +41,18 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'flex-start',
         borderBottomColor: colors.appSecondary,
-        borderBottomWidth: 1,
+        borderBottomWidth: 1
     },
     lineContainer: {
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: colors.appBackground,
+        backgroundColor: colors.appBackground
     },
     stopNameContainer: {
         flex: 5,
         justifyContent: 'center',
-        alignItems: 'flex-start',
+        alignItems: 'flex-start'
     },
     favoriteStarContainer: {
         flex: 1,
@@ -69,7 +69,7 @@ const styles = StyleSheet.create({
     },
 
     departures: {
-        flex: 3,
+        flex: 3
     }
 })
 

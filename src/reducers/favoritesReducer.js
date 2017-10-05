@@ -1,6 +1,6 @@
 import { handle } from 'redux-pack'
 
-import { GET_FAVORITES, ADD_FAVORITE } from '../constants'
+import { GET_FAVORITES, ADD_FAVORITE, REMOVE_FAVORITE } from '../constants'
 
 const initialState = {
     favorites: []
@@ -30,6 +30,15 @@ const favoritesReducer = (state = initialState, action) => {
             return {
                 ...state,
                 favorites: state.favorites.concat(action.payload)
+            }
+        case REMOVE_FAVORITE:
+            const indexOfRemoved = state.favorites.findIndex(favorite => favorite.locationId === action.payload.locationId && favorite.line === action.payload.line)
+            return {
+                ...state,
+                favorites: [
+                    ...state.favorites.slice(0, indexOfRemoved),
+                    ...state.favorites.slice(indexOfRemoved + 1)
+                ]
             }
         default:
             return { ...state }

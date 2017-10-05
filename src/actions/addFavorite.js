@@ -4,7 +4,6 @@ import insertFavoriteDeparture from '../comm/insertFavoriteDeparture'
 import fetchDepartures from '../comm/fetchDepartures'
 
 const addFavorite = (locationId, line, direction) => {
-
     return dispatch => {
         return insertFavoriteDeparture(locationId, line, direction)
             .then(() => fetchDepartures(locationId))
@@ -14,7 +13,6 @@ const addFavorite = (locationId, line, direction) => {
                     payload: stateObjectFromDepartureAndFavorite({ next, name }, { locationId, line, direction })
                 })
             })
-            .catch(err => console.error(err))
     }
 }
 

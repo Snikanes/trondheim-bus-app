@@ -2,8 +2,8 @@ import Expo, { SQLite } from 'expo'
 
 const setupDb = () => {
     const db = SQLite.openDatabase({ name: 'bus.db' })
-    //return teardownTables(db).then(() => setupTables(db))
-    return setupTables(db)
+    return teardownTables(db).then(() => setupTables(db))
+    //return setupTables(db)
 }
 
 const setupTables = db => {

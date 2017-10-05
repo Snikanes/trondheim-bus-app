@@ -19,6 +19,7 @@ const FavoritesList = ({ favorites }) => {
 
     const _renderItem = ({ item }) => (
         <LineDepartures
+            locationId={item.locationId}
             name={item.name}
             line={item.line}
             departures={item.departures}
