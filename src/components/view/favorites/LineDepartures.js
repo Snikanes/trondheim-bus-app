@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
     stopNameContainer: {
         flex: 5,
         justifyContent: 'center',
-        alignItems: 'flex-start'
+        alignItems: 'center'
     },
     favoriteStarContainer: {
         flex: 1,
@@ -61,11 +61,12 @@ const styles = StyleSheet.create({
         backgroundColor: colors.appBackground
     },
     lineText: {
-        color: 'white',
+        color: colors.navHeaderText,
         textAlign: 'center'
     },
     bg: {
-        backgroundColor: colors.appSecondary
+        backgroundColor: colors.appSecondary,
+        maxHeight: 80
     },
 
     departures: {

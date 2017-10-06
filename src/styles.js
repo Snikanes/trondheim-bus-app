@@ -1,9 +1,10 @@
 export const colors = {
-    appBackground: '#3399ff',
+    appBackground: 'white',
     appSecondary: '#dddddd',
-    navHeaderText: 'white',
+    navHeaderText: 'black',
     separator: '#CED0CE',
-    mutedColor: 'rgba(0, 0, 0, 0.5)'
+    mutedColor: 'rgba(0, 0, 0, 0.5)',
+    favStarColor: 'orange'
 }
 
 export const text = {
@@ -30,7 +31,7 @@ export const text = {
 export const header = {
     title: {
         defaultStyle: {
-            color: 'white',
+            color: 'black',
             fontWeight: 'bold'
         }
     },

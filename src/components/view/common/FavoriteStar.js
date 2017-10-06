@@ -1,6 +1,7 @@
 import React from 'react'
 import { Ionicons } from '@expo/vector-icons';
 import { TouchableOpacity } from 'react-native'
+import { colors } from '../../../styles'
 
 const FavoriteStar = ({ locationId, line, direction, removeFavorite, addFavorite, isFavorite }) => {
     const pressHandler = (locationId, line, direction) => {
@@ -9,7 +10,7 @@ const FavoriteStar = ({ locationId, line, direction, removeFavorite, addFavorite
 
     return (
         <TouchableOpacity onPress={() => pressHandler(locationId, line, direction)}>
-            <Ionicons name="md-star" size={30} color="yellow" />
+            <Ionicons name="md-star" size={30} color={colors.favStarColor} />
         </TouchableOpacity>
     )
 }
