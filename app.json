@@ -2,9 +2,8 @@
   "expo": {
 
     "name": "Trønderbuss",
-    "icon": "./path/to/your/app-icon.png",
     "version": "1.0.0",
-    "slug": "exp.host/@snikanes/trondheim-buss-app",
+    "slug": "trondheim-buss-app",
     "sdkVersion": "21.0.0",
     "orientation": "portrait",
     "ios": {
