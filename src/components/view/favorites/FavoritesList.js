@@ -1,8 +1,8 @@
 import React from 'react'
 import { FlatList, View, Text, StyleSheet } from 'react-native'
 
-import LineDepartures from '../../container/LineDeparturesContainer'
 import { colors, text } from '../../../styles'
+import DeparturesListElement from '../../container/DeparturesListElementContainer'
 
 const FavoritesList = ({ favorites }) => {
 
@@ -16,15 +16,18 @@ const FavoritesList = ({ favorites }) => {
         )
     }
 
-    const _renderItem = ({ item }) => (
-        <LineDepartures
+    const _renderItem = ({ item }) => {
+        console.log(item)
+
+        return <DeparturesListElement
+            isFavorite
             locationId={item.locationId}
-            name={item.name}
-            line={item.line}
-            departures={item.departures}
             direction={item.direction}
+            name={item.name}
+            departures={item.departures}
+            line={item.line}
         />
-    )
+    }
 
     return (
         <FlatList

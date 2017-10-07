@@ -1,15 +1,11 @@
 import React from 'react'
-import { Text, View, StyleSheet, } from 'react-native'
+import { Text, View, StyleSheet } from 'react-native'
 
 import { colors, text } from '../../../styles'
-import HorizontalDeparturesList from '../common/HorizontalDeparturesList'
-import FavoriteStar from '../common/FavoriteStar'
+import HorizontalDeparturesList from './HorizontalDeparturesList'
+import FavoriteStar from './FavoriteStar'
 
-const DeparturesListElement = ({ addFavorite, removeFavorite, departures, locationId, direction, isLineFavorite }) => {
-
-    const line = departures[0].l
-
-    const isFavorite = isLineFavorite(locationId, line)
+const DeparturesListElement = ({ addFavorite, removeFavorite, departures, locationId, direction, isFavorite, line, name }) => {
 
     const pressHandler = isFavorite ? () => removeFavorite(locationId, line) : () => addFavorite(locationId, line, direction)
 
@@ -20,10 +16,10 @@ const DeparturesListElement = ({ addFavorite, removeFavorite, departures, locati
                     <Text style={[text.size.large, styles.lineText]}> {line} </Text>
                 </View>
                 <View style={styles.stopNameContainer}>
-                    <Text> {""} </Text>
+                    <Text> {name ? `${name} ${direction}` : ''}</Text>
                 </View>
                 <View style={[styles.favoriteStarContainer]}>
-                    <FavoriteStar isFavorite={isFavorite} pressHandler={pressHandler} />
+                    <FavoriteStar isFavorite={isFavorite} pressHandler={pressHandler}/>
                 </View>
             </View>
             <HorizontalDeparturesList style={styles.departures} departures={departures}/>
@@ -37,12 +33,13 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
-        height: 80,
+        maxHeight: 80,
         backgroundColor: 'white'
     },
     infoSection: {
         flex: 1,
         flexDirection: 'row',
+        justifyContent: 'flex-start',
         borderBottomColor: colors.appSecondary,
         borderBottomWidth: 1
     },
@@ -66,12 +63,6 @@ const styles = StyleSheet.create({
     lineText: {
         color: colors.navHeaderText,
         textAlign: 'center'
-    },
-    bg: {
-        maxHeight: 80
-    },
-    departures: {
-        flex: 3
     }
 })
 

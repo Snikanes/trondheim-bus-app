@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 
-import DeparturesListElement from '../view/departures/DeparturesListElement'
+import DeparturesListElement from '../view/common/DeparturesListElement'
 import addFavorite from '../../actions/addFavorite'
 import removeFavorite from '../../actions/removeFavorite'
 
@@ -11,12 +11,4 @@ const mapDispatchToProps = dispatch => {
     }
 }
 
-const mapStateToProps = state => {
-    return {
-        locationId: state.departures.locationId,
-        direction: state.departures.direction,
-        isLineFavorite: (locationId, line) => state.favorites.favorites.some(departure => locationId === departure.locationId && line === departure.line)
-    }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(DeparturesListElement)
+export default connect(null, mapDispatchToProps)(DeparturesListElement)

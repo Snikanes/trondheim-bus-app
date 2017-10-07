@@ -8,7 +8,8 @@ const mapStateToProps = state => {
         locationId: state.departures.locationId,
         departures: state.departures.next,
         direction: state.departures.direction,
-        isLoading: state.departures.isLoading
+        isLoading: state.departures.isLoading,
+        favorites: state.favorites.favorites
     }
 }
 
