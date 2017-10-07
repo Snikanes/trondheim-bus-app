@@ -1,6 +1,7 @@
 import { connect } from 'react-redux'
 
 import FavoritesView from '../view/favorites/FavoritesView'
+import getFavorites from '../../actions/getFavorites'
 
 const mapStateToProps = state => {
     return {

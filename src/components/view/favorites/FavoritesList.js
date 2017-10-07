@@ -20,10 +20,10 @@ const FavoritesList = ({ favorites }) => {
 
     return (
         <FlatList
-            contentContainerStyle={favorites.length > 0 ? styles.containerStyle : styles.listEmptyStyle}
+            contentContainerStyle={favorites.length === 0 && styles.listEmptyStyle}
             data={favorites}
             renderItem={_renderItem}
-            keyExtractor={(item, index) => item.locationId + item.line}
+            keyExtractor={(item, index) => item.id}
             ItemSeparatorComponent={() => <ListSeparator height={10}/>}
             ListEmptyComponent={<Text style={[text.size.medium, styles.listEmptyText]}> {"Du har ingen favoritter. Søk etter en holdeplass og trykk på stjernen i avgangen du ønsker å legge til her."} </Text>}
         />
@@ -31,11 +31,6 @@ const FavoritesList = ({ favorites }) => {
 }
 
 const styles = StyleSheet.create({
-    containerStyle: {
-        justifyContent: 'flex-start',
-        alignItems: 'center',
-        height: '100%'
-    },
     listEmptyStyle: {
         justifyContent: 'center',
         alignItems: 'center',

@@ -16,8 +16,9 @@ const getFavorites = () => {
     }
 }
 
-export const stateObjectFromDepartureAndFavorite = ({ next, name }, { locationId, line, direction }) => {
+export const stateObjectFromDepartureAndFavorite = ({ next, name }, { locationId, line, direction, id }) => {
     return {
+        id: id,
         locationId: locationId,
         name: name,
         direction: direction,
@@ -27,12 +28,3 @@ export const stateObjectFromDepartureAndFavorite = ({ next, name }, { locationId
 }
 
 export default getFavorites
-
-
-/*payload:  {
-    locationId: locationId,
-        name: name,
-        direction: d,
-        line: line,
-        departures: next.filter(departure => departure.l === line)
-}*/

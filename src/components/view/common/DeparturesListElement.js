@@ -22,7 +22,7 @@ const DeparturesListElement = ({ addFavorite, removeFavorite, departures, locati
                     <FavoriteStar isFavorite={isFavorite} pressHandler={pressHandler}/>
                 </View>
             </View>
-            <HorizontalDeparturesList style={styles.departures} departures={departures}/>
+            <HorizontalDeparturesList departures={departures}/>
         </View>
     )
 }
@@ -34,6 +34,8 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         maxHeight: 80,
+        height: 80,
+        width: '100%',
         backgroundColor: 'white'
     },
     infoSection: {

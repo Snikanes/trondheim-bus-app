@@ -33,7 +33,7 @@ const DeparturesList = ({ locationId, direction, departures, favorites }) => {
 
     return (
         <FlatList
-            contentContainerStyle={departuresListData.length > 0 ? styles.containerStyle : styles.listEmptyStyle}
+            contentContainerStyle={departuresListData.length === 0 && styles.listEmptyStyle}
             data={departuresListData}
             renderItem={_renderItem}
             keyExtractor={(item, index) => item[0].l}
@@ -44,11 +44,6 @@ const DeparturesList = ({ locationId, direction, departures, favorites }) => {
 }
 
 const styles = StyleSheet.create({
-    containerStyle: {
-        justifyContent: 'flex-start',
-        alignItems: 'center',
-        height: '100%'
-    },
     listEmptyStyle: {
         justifyContent: 'center',
         alignItems: 'center',

@@ -3,7 +3,8 @@ import { handle } from 'redux-pack'
 import { GET_FAVORITES, ADD_FAVORITE, REMOVE_FAVORITE } from '../constants'
 
 const initialState = {
-    favorites: []
+    favorites: [],
+    isRetrievingFavorites: false,
 }
 
 const favoritesReducer = (state = initialState, action) => {
@@ -12,10 +13,12 @@ const favoritesReducer = (state = initialState, action) => {
             return handle(state, action, {
                 start: state => ({
                     ...state,
+                    isRetrievingFavorites: true,
                     fetchError: null
                 }),
                 finish: state => ({
-                    ...state
+                    ...state,
+                    isRetrievingFavorites: false
                 }),
                 failure: state => ({
                     ...state,
