@@ -1,7 +1,7 @@
 import React from 'react'
 import { FlatList, View, Text, StyleSheet } from 'react-native'
 
-import LineDepartures from './LineDepartures'
+import LineDepartures from '../../container/LineDeparturesContainer'
 import { colors, text } from '../../../styles'
 
 const FavoritesList = ({ favorites }) => {

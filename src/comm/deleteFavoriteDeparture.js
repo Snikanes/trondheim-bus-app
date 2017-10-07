@@ -8,7 +8,7 @@ const deleteFavoriteDeparture = (locationId, line) => {
     return setupDb().then(() => {
         return new Promise((resolve, reject) => {
             db.transaction(trans => {
-                trans.executeSql('DELETE FROM favorites WHERE locationId = ? AND line = ?;', [Number(locationId), line])
+                trans.executeSql('DELETE FROM favorites WHERE locationId = ? AND line = ?;', [locationId, line])
             }, reject, resolve)
         })
     })

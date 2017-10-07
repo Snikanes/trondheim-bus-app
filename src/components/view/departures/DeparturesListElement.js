@@ -1,41 +1,78 @@
 import React from 'react'
-import { Text, View, StyleSheet, TouchableHighlight } from 'react-native'
-import moment from 'moment'
-import 'moment/locale/nb'
+import { Text, View, StyleSheet, } from 'react-native'
 
 import { colors, text } from '../../../styles'
+import HorizontalDeparturesList from '../common/HorizontalDeparturesList'
+import FavoriteStar from '../common/FavoriteStar'
 
-const DeparturesListElement = ({ addFavorite, departure, locationId, direction }) => (
-    <View style={{ backgroundColor: colors.appSecondary }}>
-        <TouchableHighlight onPress={() => addFavorite(locationId, departure.l, direction)}>
-            <View style={styles.container}>
-                <Text style={[text.size.large]}> {departure.l} </Text>
-                <Text
-                    style={[text.size.large, text.muted]}> {createDisplayTime(departure.rt === 1 ? departure.t : departure.ts)} </Text>
+const DeparturesListElement = ({ addFavorite, removeFavorite, departures, locationId, direction, isLineFavorite }) => {
+
+    const line = departures[0].l
+
+    const isFavorite = isLineFavorite(locationId, line)
+
+    const pressHandler = isFavorite ? () => removeFavorite(locationId, line) : () => addFavorite(locationId, line, direction)
+
+    return (
+        <View style={styles.card}>
+            <View style={styles.infoSection}>
+                <View style={styles.lineContainer}>
+                    <Text style={[text.size.large, styles.lineText]}> {line} </Text>
+                </View>
+                <View style={styles.stopNameContainer}>
+                    <Text> {""} </Text>
+                </View>
+                <View style={[styles.favoriteStarContainer]}>
+                    <FavoriteStar isFavorite={isFavorite} pressHandler={pressHandler} />
+                </View>
             </View>
-        </TouchableHighlight>
-    </View>
-)
+            <HorizontalDeparturesList style={styles.departures} departures={departures}/>
+        </View>
+    )
+}
 
 const styles = StyleSheet.create({
-    container: {
+    card: {
+        flex: 1,
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+        height: 80,
+        backgroundColor: 'white'
+    },
+    infoSection: {
         flex: 1,
         flexDirection: 'row',
-        justifyContent: 'space-between',
+        borderBottomColor: colors.appSecondary,
+        borderBottomWidth: 1
+    },
+    lineContainer: {
+        flex: 1,
+        justifyContent: 'center',
         alignItems: 'center',
-        height: 50,
-        marginLeft: '3%',
-        marginRight: '3%'
+        backgroundColor: colors.appBackground
+    },
+    stopNameContainer: {
+        flex: 5,
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    favoriteStarContainer: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: colors.appBackground
+    },
+    lineText: {
+        color: colors.navHeaderText,
+        textAlign: 'center'
+    },
+    bg: {
+        maxHeight: 80
+    },
+    departures: {
+        flex: 3
     }
 })
-
-const createDisplayTime = timeString => {
-    moment.locale('nb')
-    const departureTime = moment(timeString, 'DD.MM.YYYY HH:mm')
-    if (departureTime.isBefore(moment().add(1, 'm') || departureTime.isAfter(moment.now()))) {
-        return 'nå'
-    }
-    return departureTime.isBefore(moment().add(15, 'm')) ? departureTime.fromNow() : departureTime.format('HH:mm')
-}
 
 export default DeparturesListElement

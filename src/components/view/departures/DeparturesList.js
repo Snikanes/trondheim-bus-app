@@ -1,17 +1,28 @@
 import React from 'react'
-import { FlatList, View, Text } from 'react-native'
+import { FlatList } from 'react-native'
 
 import DeparturesListElement from '../../container/DeparturesListElementContainer'
 import ListSeparator from '../common/ListSeparator'
 
 const DeparturesList = ({ departures }) => {
 
+    const departuresMap = new Map()
+
+    departures.forEach(departure => {
+        if (!departuresMap.has(departure.l)) {
+            departuresMap.set(departure.l, [])
+        }
+        departuresMap.get(departure.l).push(departure)
+    })
+
+    const departuresListData = Array.from(departuresMap.values())
+
     return (
         <FlatList
-            data={departures}
-            renderItem={({ item }) => <DeparturesListElement departure={item}/>}
-            keyExtractor={(item, index) => item.l.concat(item.ts)}
-            ItemSeparatorComponent={() => <ListSeparator height={1}/>}
+            data={departuresListData}
+            renderItem={({ item }) => <DeparturesListElement departures={item}/>}
+            keyExtractor={(item, index) => item[0].l}
+            ItemSeparatorComponent={() => <ListSeparator height={10}/>}
         />
     )
 }

@@ -3,9 +3,9 @@ import React from 'react'
 import { View, Text, StyleSheet } from 'react-native'
 import { colors, text } from '../../../styles'
 import HorizontalDeparturesList from '../common/HorizontalDeparturesList'
-import FavoriteStar from '../../container/FavoriteStarContainer'
+import FavoriteStar from '../common/FavoriteStar'
 
-const LineDepartures = ({ locationId, line, name, direction, departures }) => {
+const LineDepartures = ({ locationId, line, name, direction, departures, removeFavorite }) => {
 
     return (
         <View style={styles.bg}>
@@ -18,7 +18,7 @@ const LineDepartures = ({ locationId, line, name, direction, departures }) => {
                         <Text style={[text.size.medium]}> {`${name} ${direction}`} </Text>
                     </View>
                     <View style={[styles.favoriteStarContainer]}>
-                        <FavoriteStar isFavorite locationId={locationId} line={line} direction={direction} />
+                        <FavoriteStar isFavorite pressHandler={() => removeFavorite(locationId, line)} />
                     </View>
                 </View>
                 <HorizontalDeparturesList style={styles.departures} departures={departures}/>

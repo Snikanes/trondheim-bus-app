@@ -4,7 +4,8 @@ export const colors = {
     navHeaderText: 'black',
     separator: '#CED0CE',
     mutedColor: 'rgba(0, 0, 0, 0.5)',
-    favStarColor: 'orange'
+    favStarColor: 'orange',
+    favStarColorNonFavorite: 'rgba(0, 0, 0, 0.2)'
 }
 
 export const text = {
