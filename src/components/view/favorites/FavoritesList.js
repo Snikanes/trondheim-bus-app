@@ -1,24 +1,13 @@
 import React from 'react'
-import { FlatList, View, Text, StyleSheet } from 'react-native'
+import { FlatList, Text, StyleSheet } from 'react-native'
 
 import { colors, text } from '../../../styles'
 import DeparturesListElement from '../../container/DeparturesListElementContainer'
+import ListSeparator from '../common/ListSeparator'
 
 const FavoritesList = ({ favorites }) => {
 
-    const stopSeparator = () => {
-        return (
-            <View
-                style={{
-                    height: 10
-                }}
-            />
-        )
-    }
-
     const _renderItem = ({ item }) => {
-        console.log(item)
-
         return <DeparturesListElement
             isFavorite
             locationId={item.locationId}
@@ -35,7 +24,7 @@ const FavoritesList = ({ favorites }) => {
             data={favorites}
             renderItem={_renderItem}
             keyExtractor={(item, index) => item.locationId + item.line}
-            ItemSeparatorComponent={stopSeparator}
+            ItemSeparatorComponent={() => <ListSeparator height={10}/>}
             ListEmptyComponent={<Text style={[text.size.medium, styles.listEmptyText]}> {"Du har ingen favoritter. Søk etter en holdeplass og trykk på stjernen i avgangen du ønsker å legge til her."} </Text>}
         />
     )

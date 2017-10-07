@@ -1,9 +1,9 @@
 import React from 'react'
-import { FlatList, StyleSheet } from 'react-native'
+import { FlatList, StyleSheet, Text } from 'react-native'
 
 import DeparturesListElement from '../../container/DeparturesListElementContainer'
 import ListSeparator from '../common/ListSeparator'
-import { colors } from '../../../styles'
+import { colors, text } from '../../../styles'
 
 const DeparturesList = ({ locationId, direction, departures, favorites }) => {
 
@@ -38,6 +38,7 @@ const DeparturesList = ({ locationId, direction, departures, favorites }) => {
             renderItem={_renderItem}
             keyExtractor={(item, index) => item[0].l}
             ItemSeparatorComponent={() => <ListSeparator height={10}/>}
+            ListEmptyComponent={<Text style={[text.size.medium, styles.listEmptyText]}> {"Ingen avganger fra denne holdeplassen de neste timene"} </Text>}
         />
     )
 }
