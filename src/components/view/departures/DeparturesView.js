@@ -4,18 +4,14 @@ import { View, ActivityIndicator, StyleSheet } from 'react-native'
 import DeparturesList from './DeparturesList'
 import StopInfo from '../stops/StopInfo'
 
-const DeparturesView = ({ name, locationId, direction, departures, isLoading, favorites  }) => (
+const DeparturesView = ({ name, locationId, direction, departures, isLoading, favorites, getDepartures }) => (
     <View style={styles.container}>
         <View style={styles.infoContainer}>
             <StopInfo name={name} locationId={locationId} direction={direction}/>
         </View>
         <View style={styles.departuresContainer}>
-              {isLoading ?
-                  <ActivityIndicator style={{ flexGrow: 5 }} size={'large'}/>
-                  :
                   <DeparturesList locationId={locationId} direction={direction} departures={departures}
-                                  favorites={favorites}/>
-              }
+                                  favorites={favorites} refreshHandler={getDepartures} isLoading={isLoading}/>
         </View>
     </View>
 )

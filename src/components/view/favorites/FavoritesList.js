@@ -1,11 +1,11 @@
-import React from 'react'
+import React, { PureComponent } from 'react'
 import { FlatList, Text, StyleSheet, RefreshControl } from 'react-native'
 
 import { colors, text } from '../../../styles'
 import DeparturesListElement from '../../container/DeparturesListElementContainer'
 import ListSeparator from '../common/ListSeparator'
 
-class FavoritesList extends React.PureComponent {
+class FavoritesList extends PureComponent {
 
     constructor(props) {
         super()

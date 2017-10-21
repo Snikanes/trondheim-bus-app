@@ -1,6 +1,7 @@
 import { connect } from 'react-redux'
 
 import DeparturesView from '../view/departures/DeparturesView'
+import getDepartures from '../../actions/getDepartures'
 
 const mapStateToProps = state => {
     return {
@@ -13,4 +14,10 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, null)(DeparturesView)
+const mapDispatchToProps = dispatch => {
+    return {
+        getDepartures: locationId => dispatch(getDepartures(locationId))
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(DeparturesView)
