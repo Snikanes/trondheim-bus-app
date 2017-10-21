@@ -18,11 +18,7 @@ class FavoritesScreen extends React.PureComponent {
     }
 
     render() {
-        return (
-            <View>
-                <FavoritesView/>
-            </View>
-        )
+        return <FavoritesView/>
     }
 }
 
