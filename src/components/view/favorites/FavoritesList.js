@@ -1,13 +1,21 @@
 import React from 'react'
-import { FlatList, Text, StyleSheet } from 'react-native'
+import { FlatList, Text, StyleSheet, RefreshControl } from 'react-native'
 
 import { colors, text } from '../../../styles'
 import DeparturesListElement from '../../container/DeparturesListElementContainer'
 import ListSeparator from '../common/ListSeparator'
 
-const FavoritesList = ({ favorites }) => {
+class FavoritesList extends React.PureComponent {
 
-    const _renderItem = ({ item }) => {
+    constructor(props) {
+        super()
+        this.state = {
+            refreshing: false
+        }
+        this._onRefresh = this._onRefresh.bind(this)
+    }
+
+    _renderItem({ item }) {
         return <DeparturesListElement
             isFavorite
             locationId={item.locationId}
@@ -17,17 +25,33 @@ const FavoritesList = ({ favorites }) => {
             line={item.line}
         />
     }
+    //FIXME: Redux state does not work well with refresh, so the state needs to be local. Now I am
+    //FIXME: performing a lookup into the redux state to tell if the request is done.
+    componentWillReceiveProps(nextProps) {
+        if(!nextProps.isRefreshing) {
+            this.setState({refreshing: false})
+        }
+    }
 
-    return (
-        <FlatList
-            contentContainerStyle={favorites.length === 0 && styles.listEmptyStyle}
-            data={favorites}
-            renderItem={_renderItem}
-            keyExtractor={(item, index) => item.id}
-            ItemSeparatorComponent={() => <ListSeparator height={10}/>}
-            ListEmptyComponent={<Text style={[text.size.medium, styles.listEmptyText]}> {"Du har ingen favoritter. Søk etter en holdeplass og trykk på stjernen i avgangen du ønsker å legge til her."} </Text>}
-        />
-    )
+    _onRefresh() {
+        this.setState({refreshing: true})
+        this.props.refreshHandler()
+    }
+
+    render() {
+
+        return (
+            <FlatList
+                refreshControl={<RefreshControl refreshing={this.state.refreshing} onRefresh={this._onRefresh} />}
+                contentContainerStyle={this.props.favorites.length === 0 && styles.listEmptyStyle}
+                data={this.props.favorites}
+                renderItem={this._renderItem}
+                ItemSeparatorComponent={() => <ListSeparator height={10}/>}
+                keyExtractor={(item, index) => item.id}
+                ListEmptyComponent={<Text style={[text.size.medium, styles.listEmptyText]}> {"Du har ingen favoritter. Søk etter en holdeplass og trykk på stjernen i avgangen du ønsker å legge til her."} </Text>}
+            />
+        )
+    }
 }
 
 const styles = StyleSheet.create({

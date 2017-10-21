@@ -5,8 +5,16 @@ import getFavorites from '../../actions/getFavorites'
 
 const mapStateToProps = state => {
     return {
-        favorites: state.favorites.favorites
+        favorites: state.favorites.favorites,
+        isRefreshing: state.favorites.isRefreshing,
+        isInitialLoad: state.favorites.isInitialLoad
     }
 }
 
-export default connect(mapStateToProps, null)(FavoritesView)
+const mapDispatchToProps = dispatch => {
+    return {
+        getFavorites: () => dispatch(getFavorites())
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(FavoritesView)

@@ -4,7 +4,8 @@ import { GET_FAVORITES, ADD_FAVORITE, REMOVE_FAVORITE } from '../constants'
 
 const initialState = {
     favorites: [],
-    isRetrievingFavorites: false,
+    isInitialLoad: true,
+    isRefreshing: false
 }
 
 const favoritesReducer = (state = initialState, action) => {
@@ -13,12 +14,12 @@ const favoritesReducer = (state = initialState, action) => {
             return handle(state, action, {
                 start: state => ({
                     ...state,
-                    isRetrievingFavorites: true,
+                    isRefreshing: true,
                     fetchError: null
                 }),
                 finish: state => ({
                     ...state,
-                    isRetrievingFavorites: false
+                    isInitialLoad: false,
                 }),
                 failure: state => ({
                     ...state,
@@ -26,7 +27,8 @@ const favoritesReducer = (state = initialState, action) => {
                 }),
                 success: state => ({
                     ...state,
-                    favorites: action.payload
+                    favorites: action.payload,
+                    isRefreshing: false
                 })
             })
         case ADD_FAVORITE:

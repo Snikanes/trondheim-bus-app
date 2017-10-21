@@ -1,11 +1,11 @@
 import React from 'react'
 
 import FavoritesList from './FavoritesList'
-import { ActivityIndicator, View, StyleSheet } from 'react-native'
+import { View, StyleSheet } from 'react-native'
 
-const FavoritesView = ({ favorites, getFavorites, isRetrievingFavorites }) => (
+const FavoritesView = ({ favorites, getFavorites, isRetrievingFavorites, isRefreshing, isInitialLoad }) => (
     <View style={styles.container}>
-        <FavoritesList favorites={favorites} refreshHandler={getFavorites}/>
+        <FavoritesList favorites={favorites} refreshHandler={getFavorites} isRefreshing={isRefreshing} isInitialLoad={isInitialLoad}/>
     </View>
 )
 
